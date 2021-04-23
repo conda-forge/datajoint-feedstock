@@ -1,5 +1,5 @@
 {% set name = "datajoint" %}
-{% set version = "0.12.9" %}
+{% set version = "0.13.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6c4ee69f19eb66b81eb0c365dbc9dc05c30d12b2f2b515fb4a8a0b9b33cdacca
+  sha256: 4419ebd4ac3922dc97c2bef5b2ed7812fbec9199aba8d176d74a3174ebd5cd8e
 
 build:
   noarch: python
@@ -16,11 +16,11 @@ build:
 
 requirements:
   host:
-    - python >=3.5
+    - python >=3.6
     - pip
   run:
-    - python >=3.5
-    - minio
+    - python >=3.6
+    - minio >=7.0.0
     - pyparsing
     - networkx
     - pymysql >=0.7.2
@@ -33,6 +33,7 @@ requirements:
     - graphviz
     - mscorefonts
     - pyttk
+    - cryptography
 
 test:
   imports:
@@ -43,7 +44,7 @@ test:
 
 about:
   home: https://datajoint.io
-  license: LGPL-2.1
+  license: LGPL-2.1-or-later
   license_family: LGPL
   license_file: LICENSE.txt
   summary: A relational data framework for scientific data pipelines with MySQL backend.
