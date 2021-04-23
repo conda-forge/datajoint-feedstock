@@ -20,7 +20,7 @@ requirements:
     - pip
   run:
     - python >=3.5
-    - minio
+    - minio >=7.0.0
     - pyparsing
     - networkx
     - pymysql >=0.7.2
@@ -33,6 +33,7 @@ requirements:
     - graphviz
     - mscorefonts
     - pyttk
+    - cryptography
 
 test:
   imports:
@@ -43,7 +44,7 @@ test:
 
 about:
   home: https://datajoint.io
-  license: LGPL-2.1
+  license: LGPL-2.1-or-later
   license_family: LGPL
   license_file: LICENSE.txt
   summary: A relational data framework for scientific data pipelines with MySQL backend.
