@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 78ce348a7ee36b6626e8e4b6db7ecc91534c45798fdc60968059ebba4fc5192c
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python >=3.5
+    - python {{ python_min }}
     - pip
     - otumat
   run:
-    - python >=3.5
+    - python >={{ python_min }}
     - minio
     - pyparsing
     - networkx
@@ -39,6 +39,8 @@ requirements:
     - urllib3
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - datajoint
   commands:
