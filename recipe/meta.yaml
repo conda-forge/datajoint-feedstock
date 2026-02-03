@@ -69,8 +69,6 @@ about:
 
 extra:
   recipe-maintainers:
-    - guzman-raphael
     - dimitri-yatsenko
     - datajointbot
-    - drewyangdev
     - ttngu207
