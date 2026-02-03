@@ -1,10 +1,6 @@
-{% set python_version = ">=3.9,<4.0" %}
-{% set python_version = ">=3.9,<4.0" %}
-{% set python_version = ">=3.9,<4.0" %}
-{% set python_version = ">=3.9,<4.0" %}
 {% set name = "datajoint" %}
-{% set version = "0.14.7" %}
-{% set python_version = ">=3.9,<4.0" %}
+{% set version = "2.0.0" %}
+{% set python_version = ">=3.10,<3.14" %}
 
 package:
   name: {{ name|lower }}
@@ -12,46 +8,36 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: da2154288fd51713fa4d0cc787c9ad8fedce9fe428f56050073d17a19a40423b
+  sha256: 93e949128ba64b394c98352ec310449f8b238bf18c0401703d4ab1862cffc296
 
-# build should be tested locally before PR, please save some resources for the community
-# conda install -n base conda-build boa conda-smithy
-# conda build . or conda mambabuild .
 build:
   noarch: python
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
+  entry_points:
+    - dj = datajoint.cli:cli
+    - datajoint = datajoint.cli:cli
 
 requirements:
   host:
     - python {{ python_version }}
     - pip
-    # for build, conda-forge python 3.13 removed setuptools as default dependency
-    - setuptools
+    - setuptools >=60
   run:
     - python {{ python_version }}
-    # for datajoint plugin dependencies
-    - setuptools
-    - minio >=7.0.0
-    - pyparsing
-    - networkx
-    - pymysql >=0.7.2
-    - ipython
     - numpy
+    - pymysql >=0.7.2
     - deepdiff
-    - tqdm
+    - pyparsing
     - pandas
+    - tqdm
+    - networkx
     - pydot
-    # no pyqt included: https://conda-forge.org/docs/maintainer/knowledge_base/#matplotlib
-    - matplotlib-base
-    - cryptography
-    - otumat
-    - urllib3
+    - fsspec >=2023.1.0
+    - pydantic-settings >=2.0.0
     ## System Dependencies
-    # for dj.ERD
+    # for dj.Diagram
     - graphviz
-    # for matplotlib with Microsoft TrueType
-    - mscorefonts
 
 test:
   requires:
@@ -59,32 +45,29 @@ test:
   imports:
     - datajoint
   commands:
-    # check that erd drawing is supported
+    # check that Diagram is supported
     - python -c 'import datajoint as dj; assert dj.diagram.diagram_active'
     # check graphviz is installed
     - dot -V
-    # TODO - add unit test after https://github.com/datajoint/datajoint-python/issues/1211
+    # check CLI entry points
+    - dj --help
+    - datajoint --help
 
 about:
   home: https://datajoint.com
-  license: LGPL-2.1-only
-  license_family: LGPL
-  license_file: LICENSE.txt
+  license: Apache-2.0
+  license_family: Apache
+  license_file: LICENSE
   summary: A relational data framework for scientific data pipelines.
 
   description: |
     DataJoint for Python is a framework for scientific workflow management based on relational principles.
     DataJoint is built on the foundation of the relational data model and prescribes a consistent method for
     organizing, populating, computing, and querying data.
-  doc_url: https://datajoint.com/docs/core/datajoint-python/latest/
+  doc_url: https://docs.datajoint.com/
   dev_url: https://github.com/datajoint/datajoint-python
 
 extra:
-  # TL;DR;
-  # A maintainer can be added by:
-  # - maintainer contributed PR been merged, and this list get updated
-  # - open an issue with '@conda-forge-admin, please add user @username' as title
-  # Also a new maintainer needs to accept conda-forge Github org invite email
   recipe-maintainers:
     - guzman-raphael
     - dimitri-yatsenko
