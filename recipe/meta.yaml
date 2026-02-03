@@ -1,6 +1,6 @@
 {% set name = "datajoint" %}
 {% set version = "2.0.1" %}
-{% set python_version = ">=3.10,<3.14" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -20,11 +20,11 @@ build:
 
 requirements:
   host:
-    - python {{ python_version }}
+    - python {{ python_min }}
     - pip
     - setuptools >=60
   run:
-    - python {{ python_version }}
+    - python >={{ python_min }},<3.14
     - numpy
     - pymysql >=0.7.2
     - deepdiff
@@ -41,7 +41,7 @@ requirements:
 
 test:
   requires:
-    - python {{ python_version }}
+    - python {{ python_min }}
   imports:
     - datajoint
   commands:
