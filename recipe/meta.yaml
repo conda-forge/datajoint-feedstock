@@ -1,6 +1,6 @@
 {% set name = "datajoint" %}
 {% set version = "0.14.9" %}
-{% set python_version = ">=3.9,<4.0" %}
+{% set python_version = ">=3.9,<3.13" %}
 
 package:
   name: {{ name|lower }}
