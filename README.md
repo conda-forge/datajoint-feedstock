@@ -5,13 +5,13 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/datajoint-feeds
 
 Home: https://datajoint.com
 
-Package license: LGPL-2.1-only
+Package license: Apache-2.0
 
 Summary: A relational data framework for scientific data pipelines.
 
 Development: https://github.com/datajoint/datajoint-python
 
-Documentation: https://datajoint.com/docs/core/datajoint-python/latest/
+Documentation: https://docs.datajoint.com/
 
 DataJoint for Python is a framework for scientific workflow management based on relational principles.
 DataJoint is built on the foundation of the relational data model and prescribes a consistent method for
@@ -22,11 +22,10 @@ Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table><tr>
+    <td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6888&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/datajoint-feedstock?branchName=main">
-      </a>
+      <img src="https://img.shields.io/badge/noarch-disabled-lightgrey.svg" alt="noarch disabled">
     </td>
   </tr>
 </table>
@@ -107,12 +106,12 @@ it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance
+To manage the continuous integration and simplify feedstock maintenance,
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -139,7 +138,7 @@ merged, the recipe will be re-built and uploaded automatically to the
 everybody to install and use from the `conda-forge` channel.
 Note that all branches in the conda-forge/datajoint-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
@@ -154,7 +153,5 @@ Feedstock Maintainers
 
 * [@datajointbot](https://github.com/datajointbot/)
 * [@dimitri-yatsenko](https://github.com/dimitri-yatsenko/)
-* [@drewyangdev](https://github.com/drewyangdev/)
-* [@guzman-raphael](https://github.com/guzman-raphael/)
 * [@ttngu207](https://github.com/ttngu207/)
 
