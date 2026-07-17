@@ -1,5 +1,5 @@
 {% set name = "datajoint" %}
-{% set version = "2.3.0" %}
+{% set version = "2.3.1" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 559534161d6f5fdc2b6e93762a84c41872c6d3d6b6b65cd8e0444632b46ac196
+  sha256: 08f14db4c331ea1e57f1f57c3c736cb7a19f566e314fb6eb87b37fbccc136e2b
 
 build:
   noarch: python
@@ -24,7 +24,7 @@ requirements:
     - pip
     - hatchling
   run:
-    - python >={{ python_min }},<3.14
+    - python >={{ python_min }},<3.15
     - numpy
     - packaging
     - pymysql >=0.7.2
