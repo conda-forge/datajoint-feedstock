@@ -1,5 +1,5 @@
 {% set name = "datajoint" %}
-{% set version = "2.3.3" %}
+{% set version = "2.3.4" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: aa140cfc06d3eb4a040d795498d69e5e0d123cf9857eb97c184985bff3529377
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: ce863e65670826a1fa291ff8f8a223f084def2b047cba0090552d1c7b21bb73b
 
 build:
   noarch: python
