@@ -1,5 +1,5 @@
 {% set name = "datajoint" %}
-{% set version = "2.3.5" %}
+{% set version = "2.3.6" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 48cc391d8419479b91d0eef1ca785c1b7c0f5155155b1d5b55fbeede75fcb30a
+  sha256: 00f7f9a9db144d806c8fbf6021c6103111dc444be96aa7b29ed600f53de3eee7
 
 build:
   noarch: python
@@ -28,7 +28,7 @@ requirements:
     - python >={{ python_min }},<3.16
     - numpy
     - packaging
-    - pymysql >=0.7.2
+    - pymysql >=1.1.1
     - deepdiff
     - pyparsing
     - pandas
